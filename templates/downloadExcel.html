@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Unhandled Queries</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/static/jubiai.css" rel="stylesheet">
+</head>
+
+<body>
+    <section class="sec-main">
+        <div class="container">
+            <div class="documentForm">     
+                    <h3 class="main-title center">Total Unhandled Queries</h3>
+                    <h6>Project Id: <span>smu2013685dm</span></h6>
+                    <div class="titleBorder">
+                        <div class="borderBar1"></div>
+                        <div class="borderBar2"></div>
+                    </div>
+                    <div class="row">
+                        <form class="col s12" action="#" th:action="@{/aluno/salvar}" th:object="${aluno}" method="post">
+                            <div class="section">               
+                                <div class="row">
+                                    <div class="input-field excel-image col s12 center">
+                                        <img src="/static/excel.png" class="responsive-img">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 center">
+                                        <a href="{{url}}"  class="btn waves-effect waves-light">Download</a>
+                                    </div>                 
+                                </div>                 
+                            </div>  
+                        </form>
+                    </div>                
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.datepicker').pickadate({
+                selectMonths: true, 
+                selectYears: 20 
+            });            
+            $('select').material_select();
+        });
+    </script>
+
+    </body>
+</html>
