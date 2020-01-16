@@ -5,11 +5,12 @@ import os
 import pandas as pd
 import numpy as np
 from datetime import datetime, timezone, timedelta
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, redirect
 from flask_wtf.csrf import CSRFProtect
 # from flask_cors import CORS, cross_origin
 import json
 import re
+import cal
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
@@ -20,12 +21,15 @@ app.config.update(dict(
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('index.html', name='index')
+    return render_template('home.html', name='index')
+
+
 
 @csrf.exempt
-@app.route('/calculation', methods=['POST'])
+@app.route('/upload', methods=['POST', 'GET'])
 def getFile():
     if request.method == 'POST':
+        print("posttttt")
         if 'file' not in request.files:
             print('No file part')
             return redirect(request.url)
@@ -33,16 +37,19 @@ def getFile():
         if file.filename == '':
             print('No file selected for uploading')
             return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join('/home/jubi/Jubi/local/axaReports/files/', filename))
+        if file:# and allowed_file(file.filename):
+            print(file.filename, "-=-=-=-=-=-=-=-\n", os.path.join, "\n")
+            filename = file.filename
+            # file.save('/home/jubi/Jubi/clients/Axa/axaReport/files/'+filename)
+            cal.calculate(file)
             print('File successfully uploaded')
             return redirect('/')
         else:
             flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
             return redirect(request.url)
     
-    return jsonify(url=url, projectId=projectId)
+        return jsonify(data={'unknown Journey': {'paymentDone': 12, 'paymentfail': 0, 'policyGenerated': 0, 'policyGeneratedFail': 0}})
+    return render_template('index.html', name='index')
 
 @app.route("/downloadXlsx")
 def downloadxl():
