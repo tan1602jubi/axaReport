@@ -90,7 +90,7 @@ def calculate(file):
             pass
     print(reportJson)
     for i in users:
-        users[i] = list(set(users[i]))
+        users[i] = len(list(set(users[i])))
     # print(list(set(users["unknown Journey"])))    
     return reportJson, users
 
