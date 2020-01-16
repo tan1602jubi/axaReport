@@ -89,7 +89,9 @@ def calculate(file):
             print(er, "errrorrroorr")
             pass
     print(reportJson)
-    print(list(set(users["unknown Journey"])))    
+    for i in users:
+        users[i] = list(set(users[i]))
+    # print(list(set(users["unknown Journey"])))    
     return reportJson, users
 
 
