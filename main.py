@@ -38,9 +38,6 @@ def getFile():
             print('No file selected for uploading')
             return redirect(request.url)
         if file:# and allowed_file(file.filename):
-            print(file.filename, "-=-=-=-=-=-=-=-\n", os.path.join, "\n")
-            filename = file.filename
-            # file.save('/home/jubi/Jubi/clients/Axa/axaReport/files/'+filename)
             report, users = cal.calculate(file)
             print('File successfully uploaded')
             return redirect('/')
