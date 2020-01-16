@@ -1,4 +1,3 @@
-import pymongo
 import threading
 import sys
 import os
