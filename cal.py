@@ -88,5 +88,10 @@ def calculate(file):
         except Exception as er:
             print(er, "errrorrroorr")
             pass
-    print(reportJson)    
+    print(reportJson)
+    print(list(set(users["unknown Journey"])))    
     return reportJson, users
+
+
+
+    

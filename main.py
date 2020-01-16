@@ -41,14 +41,14 @@ def getFile():
             print(file.filename, "-=-=-=-=-=-=-=-\n", os.path.join, "\n")
             filename = file.filename
             # file.save('/home/jubi/Jubi/clients/Axa/axaReport/files/'+filename)
-            cal.calculate(file)
+            report, users = cal.calculate(file)
             print('File successfully uploaded')
             return redirect('/')
         else:
             flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
             return redirect(request.url)
     
-        return jsonify(data={'unknown Journey': {'paymentDone': 12, 'paymentfail': 0, 'policyGenerated': 0, 'policyGeneratedFail': 0}})
+        return jsonify(report=report, users=users)
     return render_template('index.html', name='index')
 
 @app.route("/downloadXlsx")
