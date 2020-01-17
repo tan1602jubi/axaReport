@@ -3,10 +3,10 @@ import numpy as np
 
 
 def getJourney(obj):
-    if "JOURNEYCODE" in list(obj.keys()):
+    if "JOURNEYCODE" in list(obj.keys()) and not obj["JOURNEYCODE"] == 'nan' and not obj["JOURNEYCODE"] == 'NaN':
         return obj["JOURNEYCODE"]
     else:
-        return "unknown Journey"
+        return "unknown_Journey"
 
 def paymentPassCount(obj):
     if "PAYMENT" in list(obj.keys()) and (obj["PAYMENT"] == "paymentDone" or obj["PAYMENT"] == "success"):
@@ -44,7 +44,7 @@ def getUser(obj):
     if "SOURCE" in list(obj.keys()) and not obj["SOURCE"] == "nan" and not obj["SOURCE"] == "NaN":
         return obj["SOURCE"]
     else:
-        return "Unknown Source"
+        return "Unknown_Source"
 
 
 def calculate(file):
@@ -91,6 +91,7 @@ def calculate(file):
     print(reportJson)
     for i in users:
         users[i] = len(list(set(users[i])))
+    print(users, "=-=-=-=-=-")
     # print(list(set(users["unknown Journey"])))    
     return reportJson, users
 
