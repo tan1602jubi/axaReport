@@ -3,6 +3,8 @@ import numpy as np
 
 
 def getJourney(obj):
+    print(obj.values())
+    print("%"*90)
     if "JOURNEYCODE" in list(obj.keys()) and not obj["JOURNEYCODE"] == 'nan' and not obj["JOURNEYCODE"] == 'NaN':
         return obj["JOURNEYCODE"]
     elif 'Quote Gen Rollover' in list(obj.values()) or 'rolloverpolicy' in list(obj.values()) or 'renew policy from other insurance company':
