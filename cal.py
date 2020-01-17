@@ -8,7 +8,7 @@ def getJourney(obj):
     elif 'Quote Gen Rollover' in list(obj.values()) or 'rolloverpolicy' in list(obj.values()) or 'renew policy from other insurance company':
          return 'rolloverBike'
     elif 'buy new policy' in list(obj.values()):
-         return 'buynew'
+         return 'buynewBike'
     else:
         return "unknown_Journey"
 
