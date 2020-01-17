@@ -19,7 +19,10 @@ function getDataFromExcel(data){
     for(detail in data){
         console.log(detail)
         console.log(data[detail]) 
-        $('#reportTable').append('<tr id="'+detail+'"><td>'+detail+'</td><tr>')
+        console.log(Object.keys(data).indexOf(detail))
+        // if(Object.keys(data).indexOf(detail) == 0){
+            $('#reportTable').append('<tr id="'+detail+'"><td>'+detail+'</td><tr>')
+        // }
         $('#'+detail).append('<td>'+data[detail]+'</td>')
         // if(detail == 'paymentDone'){
         //     document.getElementById('paymentDone').innerHTML += data[detail]
