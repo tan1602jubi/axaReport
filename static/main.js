@@ -48,10 +48,17 @@ $(document).ready(function() {
                 document.getElementById('previewContainer').style.display = "block";
                 console.log(JSON.stringify(response));
                 for(journey in response.report){
-                    $('#reportTable').append('<tr id="'+journey+'"><td></td><td>'+journey+'</td></tr>')
-                    $('#'+journey).append('<td>'+journey+'</td>')
-                    console.log(journey)
-                    getDataFromExcel(response.report[journey])
+                    console.log(Object.keys(response.report).indexOf(journey))
+                    if(Object.keys(response.report).indexOf(journey) == 0){
+                        $('#reportTable').append('<tr id="'+journey+'"><td></td><td>'+journey+'</td></tr>')
+                        $('#'+journey).append('<td>'+journey+'</td>')
+                        getDataFromExcel(response.report[journey])
+                    }
+                    else{
+                        $('#'+journey).append('<td>'+journey+'</td>')
+                        console.log(journey)
+                        getDataFromExcel(response.report[journey])
+                    }
                 }
             }
         });

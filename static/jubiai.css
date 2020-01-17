@@ -1,5 +1,5 @@
 
-body { overflow: hidden; }
+body { overflow: auto; }
 .documentForm { box-shadow: 0 2px 4px 0 #ccc; max-width: 500px; padding: 39px 50px 33px; margin:18px auto 0;background: #fff; position: relative;}
 .documentForm .row { margin-bottom: 0px; }
 .main-title { font-size: 21px;margin: 0 0 4px; color: #016a98; font-weight: 500;border-radius: 2px;overflow: hidden; }
