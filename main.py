@@ -38,13 +38,14 @@ def getFile():
             return redirect(request.url)
         if file:# and allowed_file(file.filename):
             report, users = cal.calculate(file)
+            return jsonify(report=report, users=users)
             print('File successfully uploaded')
             return redirect('/')
         else:
             flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
             return redirect(request.url)
     
-        return jsonify(report=report, users=users)
+        
     return render_template('index.html', name='index')
 
 @app.route("/downloadXlsx")

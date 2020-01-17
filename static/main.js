@@ -1,3 +1,64 @@
+let loadingGifHTML = `<div id="loading-gif" class="loading-gif"><div class="gif-container"><img src="./static/rotating-balls-spinner.gif"></div></div>`
+let dataPreviewHTML = `<table>
+                            <tr>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </table>`;
+
+// function displayData(data){
+//     let journey = data.report
+//     for(key in journey){
+//         document.getElementById('paymentDone')
+//     }
+// }
+
+function getDataFromExcel(data){
+    for(detail in data){
+        console.log(detail)
+        console.log(data[detail]) 
+        $('#reportTable').append('<tr id="'+detail+'"><td>'+detail+'</td><tr>')
+        $('#'+detail).append('<td>'+data[detail]+'</td>')
+        // if(detail == 'paymentDone'){
+        //     document.getElementById('paymentDone').innerHTML += data[detail]
+        // }
+        // else if(detail == 'paymentfail'){
+        //     document.getElementById('paymentfail').innerHTML += data[detail]
+        // }
+        // else if(detail == 'policyGenerated'){
+        //     document.getElementById('policyGenerated').innerHTML += data[detail]
+        // }
+        // else if(detail == 'policyGeneratedFail'){
+        //     document.getElementById('policyGeneratedFail').innerHTML += data[detail]
+        // }
+    }
+}
+
+$(document).ready(function() {
+    $('#uploadForm').submit(function() {
+        document.getElementById('documentForm').innerHTML += loadingGifHTML
+        $(this).ajaxSubmit({
+            error: function(xhr) {
+                console.log(xhr)
+            },
+            success: function(response) {
+                document.getElementById('loading-gif').remove();
+                document.getElementById('previewContainer').style.display = "block";
+                console.log(JSON.stringify(response));
+                for(journey in response.report){
+                    $('#reportTable').append('<tr id="'+journey+'"><td></td><td>'+journey+'</td></tr>')
+                    $('#'+journey).append('<td>'+journey+'</td>')
+                    console.log(journey)
+                    getDataFromExcel(response.report[journey])
+                }
+            }
+        });
+   return false;
+   });    
+});
+
 function sendFile(){
     return new Promise(async function(resolve, reject){
         let file = document.getElementById("excelFile");

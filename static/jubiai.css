@@ -1,6 +1,6 @@
 
 body { overflow: hidden; }
-.documentForm { box-shadow: 0 2px 4px 0 #ccc; max-width: 500px; padding: 39px 50px 33px; margin:18px auto 0;background: #fff; }
+.documentForm { box-shadow: 0 2px 4px 0 #ccc; max-width: 500px; padding: 39px 50px 33px; margin:18px auto 0;background: #fff; position: relative;}
 .documentForm .row { margin-bottom: 0px; }
 .main-title { font-size: 21px;margin: 0 0 4px; color: #016a98; font-weight: 500;border-radius: 2px;overflow: hidden; }
 .excel-image img.responsive-img { max-width: 164px; }
@@ -20,6 +20,43 @@ body { background: url("bg.jpg");background-size: 100%; }
 .unhandledTitle { float: left; width: 100%;margin: 0 0 10px; }
 .documentForm .btn { color: #5f5f5f; background-color: #fff951; box-shadow: 0 0 0 0; }
 .documentForm .btn:hover { background-color: #016a98; color: #fff; }
+.loading-gif{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    height: 204px;
+    display: flex;
+    background: #f1f1f1;
+    opacity: 0.8;
+}
+.gif-container{
+    width: 130px;
+    margin: auto;
+}
+.gif-container img{
+    width: 100%;
+    height: auto;
+}
+#uploadForm input[type=submit]{
+    background: #016a98;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    font-size: 15px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+#uploadForm input[type=submit]:hover{
+    background: #037cb1;
+    transition: all 0.3s linear;
+}
+.preview-content{
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 8px #ccc;
+    border-radius: 4px;
+}
 .sec-download { position: fixed;
     left: 0;
     top: 0;
