@@ -51,14 +51,15 @@ $(document).ready(function() {
                     console.log(Object.keys(response.report).indexOf(journey))
                     if(Object.keys(response.report).indexOf(journey) == 0){
                         $('#reportTable').append('<tr id="'+journey+'"><td></td><td>'+journey+'</td></tr>')
-                        $('#'+journey).append('<td>'+journey+'</td>')
-                        getDataFromExcel(response.report[journey])
+                        
                     }
                     else{
                         $('#'+journey).append('<td>'+journey+'</td>')
                         console.log(journey)
                         getDataFromExcel(response.report[journey])
                     }
+                    $('#'+journey).append('<td>'+journey+'</td>')
+                    getDataFromExcel(response.report[journey])
                 }
             }
         });
