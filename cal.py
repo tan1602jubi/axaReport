@@ -89,6 +89,11 @@ def calculate(file):
                 reportJson[journey]["policyGenerated"] = 0
                 reportJson[journey]["policyGeneratedFail"] = 0
                 users[journey] = []        
+                reportJson[journey]["paymentDone"] += paymentPassCount(i)
+                reportJson[journey]["paymentfail"] += paymentFailCount(i)
+                reportJson[journey]["policyGenerated"] += policyPassCount(i)
+                reportJson[journey]["policyGeneratedFail"] += policyFailCount(i)
+                users[journey].append(getUser(i))  
         except Exception as er:
             print(er, "errrorrroorr")
             pass
