@@ -6,7 +6,7 @@ def getJourney(obj):
     if "JOURNEYCODE" in list(obj.keys()) and not obj["JOURNEYCODE"] == 'nan' and not obj["JOURNEYCODE"] == 'NaN':
         return obj["JOURNEYCODE"]
     elif 'Quote Gen Rollover' in list(obj.values()) or 'rolloverpolicy' in list(obj.values()) or 'renew policy from other insurance company':
-         return 'rollover'
+         return 'rolloverBike'
     elif 'buy new policy' in list(obj.values()):
          return 'buynew'
     else:
