@@ -1,5 +1,6 @@
 
 body { overflow: auto; }
+*{box-sizing: border-box;}
 .documentForm { box-shadow: 0 2px 4px 0 #ccc; max-width: 500px; padding: 39px 50px 33px; margin:18px auto 0;background: #fff; position: relative;}
 .documentForm .row { margin-bottom: 0px; }
 .main-title { font-size: 21px;margin: 0 0 4px; color: #016a98; font-weight: 500;border-radius: 2px;overflow: hidden; }
@@ -14,12 +15,15 @@ body { background: url("bg.jpg");background-size: 100%; }
 .documentForm .section { padding-top: 0; }
 .header-unhandled, .sec-main { float: left; width: 100%; }
 .header-unhandled { position: relative; z-index: 9;background: #fff; box-shadow: 0 1px 2px 0 #e6e6e6; }
-.header-unhandled .container, .sec-main .container { width: 93%; }
+.header-unhandled .container, .sec-main .container { width: 93%;margin: 40px 35px;}
 .logo { max-width: 137px; margin: 6px 0 0 0; }
 .logo img { max-width: 100%; }
 .unhandledTitle { float: left; width: 100%;margin: 0 0 10px; }
 .documentForm .btn { color: #5f5f5f; background-color: #fff951; box-shadow: 0 0 0 0; }
 .documentForm .btn:hover { background-color: #016a98; color: #fff; }
+.full-sec{width: 100%;float: left;margin: 10px 0;}
+.left-sec{width: 50%;float: left;}
+.right-sec{width: 50%;float: right;}
 .loading-gif{
     position: absolute;
     top: 0;
@@ -52,10 +56,17 @@ body { background: url("bg.jpg");background-size: 100%; }
     transition: all 0.3s linear;
 }
 .preview-content{
-    margin: 20px;
     padding: 10px;
     box-shadow: 0px 0px 8px #ccc;
     border-radius: 4px;
+    width: 100%;
+    margin: 0 0 40px;
+    float: left;
+}
+.preview-content h6{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
 }
 .sec-download { position: fixed;
     left: 0;
