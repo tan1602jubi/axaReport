@@ -18,14 +18,14 @@ app.config.update(dict(
     WTF_CSRF_SECRET_KEY="unhandledQueriesCSRF"
 ))
 
-@app.route('/', methods=['GET', 'POST'])
-def home():
-    return render_template('home.html', name='index')
+# @app.route('/', methods=['GET', 'POST'])
+# def home():
+#     return render_template('home.html', name='index')
 
 
 
 @csrf.exempt
-@app.route('/upload', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def getFile():
     if request.method == 'POST':
         print("posttttt")
@@ -56,6 +56,5 @@ def downloadxl():
 
 if __name__ == '__main__':
 
-    port = int(os.environ.get("PORT", 7333))    
+    port = int(os.environ.get("PORT", 8051))    
     app.run(host='0.0.0.0', port=port, threaded = True)
-    #app.run_server(host='0.0.0.0', port=port,threaded = True)
