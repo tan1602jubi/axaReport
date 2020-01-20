@@ -84,6 +84,8 @@ def calculate(file):
                 reportJson[journey]["policyGenerated"] += policyPassCount(i)
                 reportJson[journey]["policyGeneratedFail"] += policyFailCount(i)
                 users[journey].append(getUser(i))  
+            elif journey == "unknown_Journey":
+                continue
             else:
                 reportJson[journey] = {}
                 reportJson[journey]["paymentDone"] = 0
@@ -101,7 +103,7 @@ def calculate(file):
             pass
     print(reportJson)
     for i in users:
-        users[i] = len(list(set(users[i])))
+        users[i] = len(list(users[i])) # len(list(set(users[i])))
     print(users, "=-=-=-=-=-")
     # print(list(set(users["unknown Journey"])))    
     return reportJson, users
