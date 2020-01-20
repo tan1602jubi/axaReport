@@ -52,6 +52,13 @@ def getUser(obj):
     else:
         return "Unknown_Source"
 
+def quoteGenCount(obj):
+    if not obj["SHOWQUOTE"] == 'nan':
+        return 1
+    else:
+        return 0
+
+
 
 def calculate(file):
 
@@ -79,6 +86,7 @@ def calculate(file):
         try:
             journey = getJourney(i)
             if journey in list(reportJson.keys()):
+                reportJson[journey]["QuoteGenerated"] += quoteGenCount(i)   
                 reportJson[journey]["paymentDone"] += paymentPassCount(i)
                 reportJson[journey]["paymentfail"] += paymentFailCount(i)
                 reportJson[journey]["policyGenerated"] += policyPassCount(i)
@@ -88,11 +96,13 @@ def calculate(file):
                 continue
             else:
                 reportJson[journey] = {}
+                reportJson[journey]["QuoteGenerated"] = 0
                 reportJson[journey]["paymentDone"] = 0
                 reportJson[journey]["paymentfail"] = 0
                 reportJson[journey]["policyGenerated"] = 0
                 reportJson[journey]["policyGeneratedFail"] = 0
-                users[journey] = []        
+                users[journey] = []      
+                reportJson[journey]["QuoteGenerated"] += quoteGenCount(i)   
                 reportJson[journey]["paymentDone"] += paymentPassCount(i)
                 reportJson[journey]["paymentfail"] += paymentFailCount(i)
                 reportJson[journey]["policyGenerated"] += policyPassCount(i)
