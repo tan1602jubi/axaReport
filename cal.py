@@ -54,6 +54,8 @@ def getUser(obj):
 
 def quoteGenCount(obj):
     if not obj["QUOTENUM"] == 'nan' and not obj["QUOTENUM"] == 'NA':
+        print(i)
+        print("*"*80)
         return 1
     else:
         return 0
