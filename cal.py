@@ -16,6 +16,7 @@ def getJourney(obj):
 
 def paymentPassCount(obj):
     if "PAYMENT" in list(obj.keys()) and (obj["PAYMENT"] == "success"): #obj["PAYMENT"] == "paymentDone" or 
+        print(obj["JOURNEYCODE"], "    JC for payment")
         return 1
     elif "PAYMENT" in list(obj.keys()) and (obj["PAYMENT"] == "paymentFailed" or obj["PAYMENT"] == "failed"):
         return 0
@@ -53,9 +54,7 @@ def getUser(obj):
         return "Unknown_Source"
 
 def quoteGenCount(obj):
-    if not obj["QUOTENUM"] == 'nan' and not obj["QUOTENUM"] == 'NA':
-        print(obj)
-        print("*"*80)
+    if not obj["QUOTENUM"] == 'nan' and not obj["QUOTENUM"] == 'NA':        
         return 1
     else:
         return 0
