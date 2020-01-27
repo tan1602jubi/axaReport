@@ -53,7 +53,7 @@ def getUser(obj):
         return "Unknown_Source"
 
 def quoteGenCount(obj):
-    if not obj["SHOWQUOTE"] == 'nan':
+    if not obj["QUOTENUM"] == 'nan' and obj["QUOTENUM"] == 'NA':
         return 1
     else:
         return 0
