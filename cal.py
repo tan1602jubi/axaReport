@@ -15,7 +15,7 @@ def getJourney(obj):
         return "unknown_Journey"
 
 def paymentPassCount(obj):
-    if "PAYMENT" in list(obj.keys()) and (obj["PAYMENT"] == "paymentDone" or obj["PAYMENT"] == "success"):
+    if "PAYMENT" in list(obj.keys()) and (obj["PAYMENT"] == "success"): #obj["PAYMENT"] == "paymentDone" or 
         return 1
     elif "PAYMENT" in list(obj.keys()) and (obj["PAYMENT"] == "paymentFailed" or obj["PAYMENT"] == "failed"):
         return 0
