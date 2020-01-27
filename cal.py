@@ -17,6 +17,7 @@ def getJourney(obj):
 def paymentPassCount(obj):
     if "PAYMENT" in list(obj.keys()) and (obj["PAYMENT"] == "success"): #obj["PAYMENT"] == "paymentDone" or 
         print(obj["JOURNEYCODE"], "    JC for payment")
+        print(obj["PAYMENT"], "    msg for payment")
         return 1
     elif "PAYMENT" in list(obj.keys()) and (obj["PAYMENT"] == "paymentFailed" or obj["PAYMENT"] == "failed"):
         return 0
