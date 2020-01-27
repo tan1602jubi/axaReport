@@ -54,7 +54,7 @@ def getUser(obj):
 
 def quoteGenCount(obj):
     if not obj["QUOTENUM"] == 'nan' and not obj["QUOTENUM"] == 'NA':
-        print(i)
+        print(obj)
         print("*"*80)
         return 1
     else:
@@ -83,7 +83,7 @@ def calculate(file):
     reportJson = {}
     users = {}
     agentsData = []
-    
+    print(len(reportData, "-=-=-=-=-=-="))
     for i in reportData:
         try:
             journey = getJourney(i)
