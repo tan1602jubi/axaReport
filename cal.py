@@ -83,7 +83,7 @@ def calculate(file):
     reportJson = {}
     users = {}
     agentsData = []
-    print(len(reportData, "-=-=-=-=-=-="))
+    print(len(reportData), "-=-=-=-=-=-=")
     for i in reportData:
         try:
             journey = getJourney(i)
