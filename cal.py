@@ -32,7 +32,7 @@ def paymentFailCount(obj):
         return 0
     
 def policyPassCount(obj):
-    if "REVIEWFAIL" in list(obj.keys()) and obj["REVIEWFAIL"] == "false":
+    if "REVIEWFAIL" in list(obj.keys()) and (obj["REVIEWFAIL"] == "false" or "http" in obj["DLINK"]):
         return 1
     elif "REVIEWFAIL" in list(obj.keys()) and obj["REVIEWFAIL"] == "true":
         return 0
